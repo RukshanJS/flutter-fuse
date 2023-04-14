@@ -3,6 +3,12 @@
   "displayName": "Flutter Fuse",
   "description": "Better Import Management for Flutter",
   "version": "0.0.1",
+  "publisher": "RukshanJS",
+  "icon": "icons/flutter-fuse.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RukshanJS/flutter-fuse.git"
+  },
   "engines": {
     "vscode": "^1.77.0"
   },
