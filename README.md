@@ -7,6 +7,11 @@ If you have been working with Flutter for a while, you know that sometimes it ca
 
 Of course there are multiple extensions available and the VS Code's `Fix All` and `Organize Imports` didn't work for me so I thought why not create a silly extension for that; and I did that.
 
+## Why this extension?
+
+- Recently I hopped into an old Flutter project where I wanted to refactor some code. There were a lot of dart files and when I moved them into different folders, the imports didn't update as I expected, for some reason. I wasted a lot of time manually "Quick Fix" ing them. Also, I could't find an extension which already does that. So, meet Flutter Fuse. 
+
+Any by the way, this is my very first Flutter extension! So I'm happy that I got it published on VS Code Marketplace! 😊
 
 ## Features
 
