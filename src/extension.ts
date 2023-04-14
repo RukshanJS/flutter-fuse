@@ -6,11 +6,11 @@ export function activate(context: vscode.ExtensionContext) {
     let continueLooping = false;
 
     // TODO - Make this better
-    const MAX_TIMEOUT = 5000; // Maximum timeout in milliseconds
+    const MAX_TIMEOUT = 10000; // Maximum timeout in milliseconds
 
     let importErrors: Diagnostic[];
 
-	console.log('FlutterFuse : Congratulations, your extension "FlutterFuse" is now active!');
+	console.log('FlutterFuse: Congratulations, your extension "FlutterFuse" is now active!');
 
 	let disposable = vscode.commands.registerCommand('flutter-fuse.quickFix', async() => {
         // Start looping for errors
@@ -18,27 +18,45 @@ export function activate(context: vscode.ExtensionContext) {
 
 		const editor = vscode.window.activeTextEditor;
         if (!editor) {
-            vscode.window.showErrorMessage('FlutterFuse : No active text editor found.');
+            vscode.window.showErrorMessage('FlutterFuse: No active text editor found.');
             return;
         }
 
-        setTimeout(() => {
-            continueLooping = false;
-        }, MAX_TIMEOUT);
-
-
-        const document = editor.document;
+        await vscode.window.withProgress({
+            location: vscode.ProgressLocation.Notification,
+            title: "FlutterFuse: Fixing import errors...",
+            cancellable: true
+        }, async (progress, token) => {
+            let continueLooping = true;
+            const timeout = setTimeout(() => {
+                continueLooping = false;
+            }, MAX_TIMEOUT);
         
-        do {
-            importErrors = getImportErrors(document);
-            for (const diagnostic of importErrors) {
-                await applyQuickFix(document, diagnostic.range);
+            try {
+                const document = editor.document;
+                let importErrors = getImportErrors(document);
+        
+                while (importErrors.length > 0 && continueLooping && !token.isCancellationRequested) {
+                    for (const diagnostic of importErrors) {
+                        await applyQuickFix(document, diagnostic.range);
+                    }
+                    importErrors = getImportErrors(document);
+                    progress.report({ increment: 1 });
+                }
+        
+                if (!continueLooping) {
+                    vscode.window.showWarningMessage("FlutterFuse: Import fixing operation timed out. Some imports may not have been fixed.");
+                } else if (token.isCancellationRequested) {
+                    vscode.window.showInformationMessage("FlutterFuse: Import fixing operation canceled.");
+                } else {
+                    vscode.window.showInformationMessage("FlutterFuse: Import fixing operation completed successfully.");
+                }
+            } finally {
+                clearTimeout(timeout);
             }
-        } while (importErrors.length > 0 && continueLooping);
+        });
 
-        await fixAllAndOrganizeImports();
-
-        vscode.window.showInformationMessage('FlutterFuse : Quick fixes applied and unused imports removed.');
+        
 	});
 
 	context.subscriptions.push(disposable);
