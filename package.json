@@ -14,8 +14,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "flutter-fuse.helloWorld",
-        "title": "Hello World"
+        "command": "flutter-fuse.quickFix",
+        "title": "FlutterFuse - Fix Imports"
       }
     ]
   },
