@@ -21,7 +21,7 @@
     "commands": [
       {
         "command": "flutter-fuse.quickFix",
-        "title": "FlutterFuse: Fix Imports"
+        "title": "Flutter Fuse: Fix Imports"
       }
     ]
   },

@@ -10,7 +10,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     let importErrors: Diagnostic[];
 
-	console.log('FlutterFuse: Congratulations, your extension "FlutterFuse" is now active!');
+	console.log('Flutter Fuse: Congratulations, your extension "Flutter Fuse" is now active!');
 
 	let disposable = vscode.commands.registerCommand('flutter-fuse.quickFix', async() => {
         // Start looping for errors
@@ -18,13 +18,13 @@ export function activate(context: vscode.ExtensionContext) {
 
 		const editor = vscode.window.activeTextEditor;
         if (!editor) {
-            vscode.window.showErrorMessage('FlutterFuse: No active text editor found.');
+            vscode.window.showErrorMessage('Flutter Fuse: No active text editor found.');
             return;
         }
 
         await vscode.window.withProgress({
             location: vscode.ProgressLocation.Notification,
-            title: "FlutterFuse: Fixing import errors...",
+            title: "Flutter Fuse: Fixing import errors...",
             cancellable: true
         }, async (progress, token) => {
             let continueLooping = true;
@@ -45,11 +45,11 @@ export function activate(context: vscode.ExtensionContext) {
                 }
         
                 if (!continueLooping) {
-                    vscode.window.showWarningMessage("FlutterFuse: Import fixing operation timed out. Some imports may not have been fixed.");
+                    vscode.window.showWarningMessage("Flutter Fuse: Import fixing operation timed out. Some imports may not have been fixed.");
                 } else if (token.isCancellationRequested) {
-                    vscode.window.showInformationMessage("FlutterFuse: Import fixing operation canceled.");
+                    vscode.window.showInformationMessage("Flutter Fuse: Import fixing operation canceled.");
                 } else {
-                    vscode.window.showInformationMessage("FlutterFuse: Import fixing operation completed successfully.");
+                    vscode.window.showInformationMessage("Flutter Fuse: Import fixing operation completed successfully.");
                 }
             } finally {
                 clearTimeout(timeout);
