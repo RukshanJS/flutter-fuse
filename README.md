@@ -1,71 +1,42 @@
-# flutter-fuse README
 
-This is the README for your extension "flutter-fuse". After writing up a brief description, we recommend including the following sections.
+# 
+
+The "FlutterFuse" extension is a Visual Studio Code extension for working with Flutter projects. 
+
+If you have been working with Flutter for a while, you know that sometimes it can get very boring and repetitive to fix imports of the .dart files, specially if you are using the "Quick Fix" option manually.
+
+Of course there are multiple extensions available and the VS Code's `Fix All` and `Organize Imports` didn't work for me so I thought why not create a silly extension for that; and I did that.
+
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Fix imports in the current .dart file
+This extension will automatically import the relevant files required for the current .dart file. Also after importing, it'll run the `Fix All` option to try to fix if duplicate imports are there. (Like cupertino and material). But this is not fully tested.
 
-For example if there is an image subfolder under your extension project workspace:
 
-\!\[feature X\]\(images/feature-x.png\)
+## Demo
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+![App Demo](https://via.placeholder.com/468x300?text=I+will+add+demo+soon)
 
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+- If the imports are not resolved within 10 seconds, you'll have to run the `FlutterFuse: Fix Imports` command again.
+- If errors that are not "Quick Fix" able exists, the importing process will run for 10 seconds and then timeout.
+## Roadmap
 
-## Release Notes
+- Give an option to fix imports in whole project instead of just the currently opened .dart file
 
-Users appreciate release notes as you update your extension.
 
-### 1.0.0
+## License
 
-Initial release of ...
+[MIT](https://choosealicense.com/licenses/mit/)
 
-### 1.0.1
 
-Fixed issue #.
+## 🚀 About Me
+I'm RukshanJS and still learning this stuff. Have experience with Flutter for 2.5+ years. (Mostly worked with Flutter 2 though) 
 
-### 1.1.0
+You can connect with me on LinkedIn, I'd be happy to get in touch!
 
-Added features X, Y, and Z.
+Have a nice day 😃
 
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
