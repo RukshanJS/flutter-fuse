@@ -10,7 +10,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     let importErrors: Diagnostic[];
 
-	console.log('Congratulations, your extension "FlutterFuse" is now active!');
+	console.log('FlutterFuse : Congratulations, your extension "FlutterFuse" is now active!');
 
 	let disposable = vscode.commands.registerCommand('flutter-fuse.quickFix', async() => {
         // Start looping for errors
@@ -18,7 +18,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 		const editor = vscode.window.activeTextEditor;
         if (!editor) {
-            vscode.window.showErrorMessage('No active text editor found.');
+            vscode.window.showErrorMessage('FlutterFuse : No active text editor found.');
             return;
         }
 
@@ -38,7 +38,7 @@ export function activate(context: vscode.ExtensionContext) {
 
         await fixAllAndOrganizeImports();
 
-        vscode.window.showInformationMessage('Quick fixes applied and unused imports removed.');
+        vscode.window.showInformationMessage('FlutterFuse : Quick fixes applied and unused imports removed.');
 	});
 
 	context.subscriptions.push(disposable);
