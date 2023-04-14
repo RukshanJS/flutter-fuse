@@ -13,7 +13,8 @@
     "vscode": "^1.77.0"
   },
   "categories": [
-    "Other"
+    "Formatters",
+    "Debuggers"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
@@ -21,7 +22,7 @@
     "commands": [
       {
         "command": "flutter-fuse.quickFix",
-        "title": "FlutterFuse: Fix Imports"
+        "title": "Flutter Fuse: Fix Imports"
       }
     ]
   },
