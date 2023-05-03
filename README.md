@@ -21,7 +21,7 @@ This extension will automatically import the relevant files required for the cur
 
 ## Demo
 
-![App Demo](https://via.placeholder.com/468x300?text=I+will+add+demo+soon)
+![App Demo](https://im2.ezgif.com/tmp/ezgif-2-03aaa15e5e.gif)
 
 
 ## Known Issues
