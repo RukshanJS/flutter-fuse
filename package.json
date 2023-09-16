@@ -2,7 +2,7 @@
   "name": "flutter-fuse",
   "displayName": "Flutter Fuse",
   "description": "Better Import Management for Flutter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "RukshanJS",
   "icon": "icons/flutter-fuse.png",
   "repository": {
