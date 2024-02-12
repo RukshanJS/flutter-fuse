@@ -19,7 +19,7 @@ Any by the way, this is my very first Flutter extension! So I'm happy that I got
 
 ## Demo
 
-![App Demo](https://im2.ezgif.com/tmp/ezgif-2-03aaa15e5e.gif)
+![App Demo](./assets/flutter_fuse_demo_1.gif)
 
 ## Known Issues
 
